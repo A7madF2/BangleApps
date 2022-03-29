@@ -70,7 +70,7 @@ var pal_bw = new Uint16Array([0x0000,0xffff],0,1); // black, white
 var pal_br = new Uint16Array([0x0000,0xf800],0,1); // black, red
 
 var buf = Graphics.createArrayBuffer(240,160, 1, {msb:true});
-var arrow_img = require("heatshrink").decompress(atob("vF4wJC/AEMYBxs8Bxt+Bxv/BpkB/+ABxcD//ABxcH//gBxcP//wBxcf//4Bxc///8Bxd///+OxgABOxgABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBQNCPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBQNEPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBANGPAx2HPAx2HPAx2HPAx2HPAx2HPAx2HeJTeJB34O/B34O/B34O/B34O/B34O/B34O/B34O/B34OTAH4AT"));
+//var arrow_img = require("heatshrink").decompress(atob("vF4wJC/AEMYBxs8Bxt+Bxv/BpkB/+ABxcD//ABxcH//gBxcP//wBxcf//4Bxc///8Bxd///+OxgABOxgABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBQNCPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBQNEPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBANGPAx2HPAx2HPAx2HPAx2HPAx2HPAx2HeJTeJB34O/B34O/B34O/B34O/B34O/B34O/B34O/B34OTAH4AT"));
 
 function flip(y,h,palette) {
   g.drawImage({width:240,height:h,bpp:1,buffer:buf.buffer, palette:palette},0,y);
@@ -113,6 +113,14 @@ function draw(force) {
     buf.setFontAlign(1, -1);
     buf.setFont("Vector", L.text.smallsize);
     buf.drawString(wp.name, W, L.text.waypointy);
+    var counter = 0;
+      if(dst < 10){
+    counter = counter + 1;
+    Graphics.clearRect(0, 250, 250, 150)
+    g.setFont("Vector", 25);
+    g.drawString( counter ,40,100); 
+    
+  }
 
     // if this is a route, draw the step name above the route name
     if (wp.route) {
