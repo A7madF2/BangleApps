@@ -118,7 +118,7 @@ function draw(force) {
     counter = counter + 1;
     //Graphics.clearRect(0, 250, 250, 150)
     g.setFont("Vector", 25);
-    g.drawString( counter ,40,100); 
+    g.drawString( counter ,100,100); 
     
   }
 
