@@ -9,7 +9,15 @@ var candraw = true;
 var counter = 0;
 const ROUTE_STEP = 50; // metres
 const EPSILON = 1; // degrees
-
+function countRounds(x){
+        if(x < 10){
+    counter = counter + 1;
+    //Graphics.clearRect(0, 250, 250, 150)
+    g.setFont("Vector", 25);
+    g.drawString( counter ,100,100); 
+    
+  }
+}
 var direction = 0;
 var dist = 0;
 
@@ -114,6 +122,8 @@ function draw(force) {
     buf.setFont("Vector", L.text.smallsize);
     buf.drawString(wp.name, W, L.text.waypointy);
     
+    setTimeout(countRounds(dst), 25000)
+/*    
       if(dst < 10){
     counter = counter + 1;
     //Graphics.clearRect(0, 250, 250, 150)
@@ -121,6 +131,7 @@ function draw(force) {
     g.drawString( counter ,100,100); 
     
   }
+  */
 
     // if this is a route, draw the step name above the route name
     if (wp.route) {
