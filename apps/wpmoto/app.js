@@ -6,7 +6,7 @@ if (wp == undefined) wp = {name:"NONE"};
 var wp_bearing = 0;
 var routeidx = 0;
 var candraw = true;
-
+var counter = 0;
 const ROUTE_STEP = 50; // metres
 const EPSILON = 1; // degrees
 
@@ -113,7 +113,7 @@ function draw(force) {
     buf.setFontAlign(1, -1);
     buf.setFont("Vector", L.text.smallsize);
     buf.drawString(wp.name, W, L.text.waypointy);
-    var counter = 0;
+    
       if(dst < 10){
     counter = counter + 1;
     //Graphics.clearRect(0, 250, 250, 150)
