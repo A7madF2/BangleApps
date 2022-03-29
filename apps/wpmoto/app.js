@@ -116,7 +116,7 @@ function draw(force) {
     var counter = 0;
       if(dst < 10){
     counter = counter + 1;
-    Graphics.clearRect(0, 250, 250, 150)
+    //Graphics.clearRect(0, 250, 250, 150)
     g.setFont("Vector", 25);
     g.drawString( counter ,40,100); 
     
