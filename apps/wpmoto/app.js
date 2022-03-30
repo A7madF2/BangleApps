@@ -12,12 +12,12 @@ const EPSILON = 1; // degrees
 
 function countRounds(x){
         
-        if(x < 10){
+        if(x < 5){
     counter = counter + 1;
     //Graphics.clearRect(0, 250, 250, 150)
     g.setFont("Vector", 25);
     g.drawString( counter ,100,100); 
-    draw();
+    //setTimeout(draw(), 25000);
     
   }
 }
@@ -76,12 +76,12 @@ if (W == 176) {
   };
 }
 
-var pal_by = new Uint16Array([0x0000,0xffc0],0,1); // black, yellow
-var pal_bw = new Uint16Array([0x0000,0xffff],0,1); // black, white
-var pal_br = new Uint16Array([0x0000,0xf800],0,1); // black, red
+var pal_by = new Uint16Array([0xffff,0xffc0],0,1); // black, yellow
+var pal_bw = new Uint16Array([0xffff,0x0000],0,1); // black, white
+var pal_br = new Uint16Array([0xffff,0xf800],0,1); // black, red
 
 var buf = Graphics.createArrayBuffer(240,160, 1, {msb:true});
-var arrow_img = require("heatshrink").decompress(atob("vF4wJC/AEMYBxs8Bxt+Bxv/BpkB/+ABxcD//ABxcH//gBxcP//wBxcf//4Bxc///8Bxd///+OxgABOxgABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBQNCPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBQNEPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBANGPAx2HPAx2HPAx2HPAx2HPAx2HPAx2HeJTeJB34O/B34O/B34O/B34O/B34O/B34O/B34O/B34OTAH4AT"));
+//var arrow_img = require("heatshrink").decompress(atob("vF4wJC/AEMYBxs8Bxt+Bxv/BpkB/+ABxcD//ABxcH//gBxcP//wBxcf//4Bxc///8Bxd///+OxgABOxgABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBR2BAAJ4KOwIABPBQNCPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBR2DPBQNEPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBB2FPBANGPAx2HPAx2HPAx2HPAx2HPAx2HPAx2HeJTeJB34O/B34O/B34O/B34O/B34O/B34O/B34O/B34OTAH4AT"));
 
 function flip(y,h,palette) {
   g.drawImage({width:240,height:h,bpp:1,buffer:buf.buffer, palette:palette},0,y);
@@ -100,13 +100,24 @@ function draw(force) {
     var palette = pal_br;
     if (savedfix !== undefined && savedfix.fix !== 0)
       palette = isNaN(savedfix.course) ? pal_by : pal_bw;
-
+    
+    if(dst < 5 && wp.name != 'NONE'){
+      if(dst < 5 && previous.dst >= 5){
+              counter = counter + 1; 
+              g.setFont("Vector",L.text.largesize);
+              g.drawString( counter ,100,100); 
+      }
+    }else{
+      g.setFont("Vector",L.text.largesize);
+      g.drawString( counter ,100,100); 
+    }
+    
     buf.setColor(1);
     buf.fillCircle(L.arrow.x,L.arrow.y, L.arrow.r1);
     buf.setColor(0);
     buf.fillCircle(L.arrow.x,L.arrow.y, L.arrow.r2);
     buf.setColor(1);
-    buf.drawImage(arrow_img, L.arrow.x, L.arrow.y, {rotate:radians(course)} );
+    //buf.drawImage(arrow_img, L.arrow.x, L.arrow.y, {rotate:radians(course)} );
     flip(L.arrow.bufy,L.arrow.bufh,palette);
 
     // distance on left
@@ -124,7 +135,8 @@ function draw(force) {
     buf.setFontAlign(1, -1);
     buf.setFont("Vector", L.text.smallsize);
     buf.drawString(wp.name, W, L.text.waypointy);
-          
+    
+
    
 /*    
       if(dst < 10){
@@ -164,9 +176,7 @@ function read_heading() {
   if (direction < 0) direction += 360;
   if (direction > 360) direction -= 360;
         
-  if(dst < 5 && wp.name != 'NONE'){
-         setTimeout(countRounds(dst), 25000)
-    }
+
   draw();
 }
 
@@ -317,8 +327,7 @@ function mainScreen() {
     }
   });
 }
-
-
+ 
 
 Bangle.on('kill',()=>{
   Bangle.setCompassPower(0);
