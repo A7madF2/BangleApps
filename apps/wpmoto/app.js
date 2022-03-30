@@ -122,7 +122,7 @@ function draw(force) {
     buf.setFont("Vector", L.text.smallsize);
     buf.drawString(wp.name, W, L.text.waypointy);
     
-    setTimeout(countRounds(dst), 25000)
+    setInterval(countRounds(dst), 25000)
 /*    
       if(dst < 10){
     counter = counter + 1;
