@@ -9,12 +9,15 @@ var candraw = true;
 var counter = 0;
 const ROUTE_STEP = 50; // metres
 const EPSILON = 1; // degrees
+
 function countRounds(x){
+        
         if(x < 10){
     counter = counter + 1;
     //Graphics.clearRect(0, 250, 250, 150)
     g.setFont("Vector", 25);
     g.drawString( counter ,100,100); 
+    draw();
     
   }
 }
@@ -160,6 +163,10 @@ function read_heading() {
   direction = wp_bearing - heading;
   if (direction < 0) direction += 360;
   if (direction > 360) direction -= 360;
+        
+  if(dst < 5 && wp.name != 'NONE'){
+         setTimeout(countRounds(dst), 25000)
+    }
   draw();
 }
 
@@ -311,9 +318,7 @@ function mainScreen() {
   });
 }
 
-if(dst < 5 && wp.name != 'NONE'){
-         setInterval(countRounds(dst), 25000)
-    }
+
 
 Bangle.on('kill',()=>{
   Bangle.setCompassPower(0);
