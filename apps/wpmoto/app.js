@@ -121,8 +121,10 @@ function draw(force) {
     buf.setFontAlign(1, -1);
     buf.setFont("Vector", L.text.smallsize);
     buf.drawString(wp.name, W, L.text.waypointy);
-    
-    setInterval(countRounds(dst), 25000)
+          
+    if(dst < 5 && wp.name != 'NONE'){
+         setInterval(countRounds(dst), 25000)
+    }
 /*    
       if(dst < 10){
     counter = counter + 1;
