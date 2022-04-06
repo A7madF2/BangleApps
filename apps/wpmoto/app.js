@@ -105,17 +105,17 @@ function draw(force) {
       g.setFont("Vector",L.text.largesize);
       g.drawString( wp.name ,100,100);
             
-    }if else(wp.name == 'Arafat' && dst < 1800 ){
+    }if (wp.name == 'Arafat' && dst < 1800 ){
             
       g.setFont("Vector",L.text.largesize);
       g.drawString( wp.name ,100,100);   
             
-    }if else(wp.name == 'Mina' && dst < 1500 ){
+    }if (wp.name == 'Mina' && dst < 1500 ){
             
       g.setFont("Vector",L.text.largesize);
       g.drawString( wp.name ,100,100);   
             
-    }if else(wp.name == 'Muzdalifa' && dst < 1200 ){
+    }if (wp.name == 'Muzdalifa' && dst < 1200 ){
             
       g.setFont("Vector",L.text.largesize);
       g.drawString( wp.name ,100,100);   
