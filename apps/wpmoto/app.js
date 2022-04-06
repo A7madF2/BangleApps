@@ -100,13 +100,35 @@ function draw(force) {
     var palette = pal_br;
     if (savedfix !== undefined && savedfix.fix !== 0)
       palette = isNaN(savedfix.course) ? pal_by : pal_bw;
-    
-    if(dst < 5 && wp.name != 'NONE'){
+    if(wp.name == 'AlHaram' && dst < 150 ){
+            
+      g.setFont("Vector",L.text.largesize);
+      g.drawString( wp.name ,100,100);
+            
+    }if else(wp.name == 'Arafat' && dst < 1800 ){
+            
+      g.setFont("Vector",L.text.largesize);
+      g.drawString( wp.name ,100,100);   
+            
+    }if else(wp.name == 'Mina' && dst < 1500 ){
+            
+      g.setFont("Vector",L.text.largesize);
+      g.drawString( wp.name ,100,100);   
+            
+    }if else(wp.name == 'Muzdalifa' && dst < 1200 ){
+            
+      g.setFont("Vector",L.text.largesize);
+      g.drawString( wp.name ,100,100);   
+            
+    }
+          
+    if(wp.name == 'WP0'){
       if(dst < 5 && previous.dst >= 5){
               counter = counter + 1; 
-              g.setFont("Vector",L.text.largesize);
-              g.drawString( counter ,100,100); 
       }
+      g.setFont("Vector",L.text.largesize);
+      g.drawString( counter ,100,100); 
+            
     }else{
       g.setFont("Vector",L.text.largesize);
       g.drawString( counter ,100,100); 
