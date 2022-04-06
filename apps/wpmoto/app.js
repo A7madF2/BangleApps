@@ -102,43 +102,59 @@ function draw(force) {
       palette = isNaN(savedfix.course) ? pal_by : pal_bw;
     if(wp.name == 'AlHaram' && dst < 150 ){
             
-      g.setFont("Vector",L.text.largesize);
-      g.drawString( wp.name ,100,100);
+      buf.setFontAlign(1, 1);      
+      buf.setFont("Vector",L.text.largesize);
+      buf.drawString( wp.name ,200,100); 
             
     }if (wp.name == 'Arafat' && dst < 1800 ){
-            
-      g.setFont("Vector",L.text.largesize);
-      g.drawString( wp.name ,100,100);   
+      
+      buf.setFontAlign(1, 1);      
+      buf.setFont("Vector",L.text.largesize);
+      buf.drawString( wp.name ,190,100);   
             
     }if (wp.name == 'Mina' && dst < 1500 ){
             
-      g.setFont("Vector",L.text.largesize);
-      g.drawString( wp.name ,100,100);   
+      buf.setFontAlign(1, 1);      
+      buf.setFont("Vector",L.text.largesize);
+      buf.drawString( wp.name ,160,100);   
             
     }if (wp.name == 'Muzdalifa' && dst < 1200 ){
             
-      g.setFont("Vector",L.text.largesize);
-      g.drawString( wp.name ,100,100);   
+      buf.setFontAlign(1, 1);      
+      buf.setFont("Vector",L.text.largesize);
+      buf.drawString( wp.name ,220,100);   
             
     }
           
     if(wp.name == 'WP0'){
+      
       if(dst < 5 && previous.dst >= 5){
-              counter = counter + 1; 
+            if(counter < 7){
+             counter = counter + 1; 
+             buf.setFont("Vector",L.text.largesize);
+             buf.drawString( counter ,140,80); 
+            }
+           if(counter == 7){
+             buf.setFont("Vector",L.text.largesize);
+             buf.drawString( 'Taqabal Allah' ,140,80); 
+           }
+      }else {
+        
+             buf.setFont("Vector",L.text.largesize);
+             buf.drawString( counter ,140,80); 
       }
-      g.setFont("Vector",L.text.largesize);
-      g.drawString( counter ,100,100); 
+
             
     }else{
       g.setFont("Vector",L.text.largesize);
-      g.drawString( counter ,100,100); 
+      g.drawString( '' ,100,100); 
     }
     
-    buf.setColor(1);
-    buf.fillCircle(L.arrow.x,L.arrow.y, L.arrow.r1);
-    buf.setColor(0);
-    buf.fillCircle(L.arrow.x,L.arrow.y, L.arrow.r2);
-    buf.setColor(1);
+   //buf.setColor(1);
+   // buf.fillCircle(L.arrow.x,L.arrow.y, L.arrow.r1);
+   // buf.setColor(0);
+   // buf.fillCircle(L.arrow.x,L.arrow.y, L.arrow.r2);
+    //buf.setColor(1);
     //buf.drawImage(arrow_img, L.arrow.x, L.arrow.y, {rotate:radians(course)} );
     flip(L.arrow.bufy,L.arrow.bufh,palette);
 
@@ -160,15 +176,7 @@ function draw(force) {
     
 
    
-/*    
-      if(dst < 10){
-    counter = counter + 1;
-    //Graphics.clearRect(0, 250, 250, 150)
-    g.setFont("Vector", 25);
-    g.drawString( counter ,100,100); 
-    
-  }
-  */
+
 
     // if this is a route, draw the step name above the route name
     if (wp.route) {
