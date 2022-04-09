@@ -128,7 +128,7 @@ function draw(force) {
           
     if(wp.name == 'WP0'){
       
-      if(dst < 5 && previous.dst >= 5){
+      if(dst < 30 && previous.dst >= 30){
             if(counter < 7){
              counter = counter + 1; 
              buf.setFont("Vector",L.text.largesize);
@@ -139,9 +139,13 @@ function draw(force) {
              buf.drawString( 'Taqabal Allah' ,140,80); 
            }
       }else {
-        
+        if(counter < 7){
              buf.setFont("Vector",L.text.largesize);
              buf.drawString( counter ,140,80); 
+        }else if(counter == 7){
+             buf.setFont("Vector",L.text.largesize);
+             buf.drawString( 'Taqabal Allah' ,140,80); 
+        }
       }
 
             
