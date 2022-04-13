@@ -6,7 +6,7 @@
   "description": "Makkah navigation and auto Tawaf counter",
   "icon": "ttt.png",
   "tags": "tool,outdoors,gps",
-  "interface": "wpmoto.html",
+  "interface": "mguide.html",
   "storage": [
     {"name":"mguide.app.js","url":"app.js"},
     {"name":"mguide.img","url":"icon.js","evaluate":true}
