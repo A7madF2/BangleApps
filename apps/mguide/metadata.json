@@ -10,7 +10,7 @@
   "interface": "mguide.html",
   "storage": [
     {"name":"mguide.app.js","url":"app.js"},
-    {"name":"mguide.img","url":"icon.js","evaluate":true}
+    {"name":"ttt.img","url":"icon.js","evaluate":true}
   ],
   "data": [{"name":"waypoints.json","url":"waypoints.json"}]
 }
