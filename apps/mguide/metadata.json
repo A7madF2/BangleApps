@@ -6,7 +6,7 @@
   "description": "Makkah navigation and auto Tawaf counter",
   "icon": "app.png",
   "tags": "tool,outdoors,gps",
-   "supports": ["BANGLEJS"],
+  "supports": ["BANGLEJS"],
   "interface": "mguide.html",
   "storage": [
     {"name":"mguide.app.js","url":"app.js"},
