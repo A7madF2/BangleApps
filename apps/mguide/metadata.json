@@ -4,7 +4,7 @@
   "shortName": "Makkah giude",
   "version": "0.01",
   "description": "Makkah navigation and auto Tawaf counter",
-  "icon": "ttt.png",
+  "icon": "app.png",
   "tags": "tool,outdoors,gps",
    "supports": ["BANGLEJS"],
   "interface": "mguide.html",
